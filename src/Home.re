@@ -1,11 +1,5 @@
 open ReactNative;
 
-
-/**
- * React Native Web actually pushes a ton of stuff into props, we just need
- * one property though to get ReactRe to compile and not yell at us */
-type root = Js.t {. className : string};
-
 let styles =
   StyleSheet.create
     Style.(
