@@ -8,7 +8,7 @@ cd reason-react-native-web-example && yarn
 yarn dev
 ```
 
-Go ahead and edit `App.re`.
+Go ahead and edit `src/App.re`.
 
 ## NPM Scripts
 
