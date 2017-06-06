@@ -1,6 +1,6 @@
 external browserRouter : ReactRe.reactClass = "BrowserRouter" [@@bs.module "react-router-dom"];
 
-external sswitch : ReactRe.reactClass = "Switch" [@@bs.module "react-router-dom"];
+external _switch : ReactRe.reactClass = "Switch" [@@bs.module "react-router-dom"];
 
 external navLink : ReactRe.reactClass = "NavLink" [@@bs.module "react-router-dom"];
 
@@ -32,6 +32,11 @@ module BrowserRouter = {
   let createElement = ReactRe.wrapPropsShamelessly browserRouter (Js.Obj.empty ());
 };
 
+
+/**
+ * The word `Switch` conflicts with React Native Web here. So we are going to import
+ * RR4's <Switch /> as <RRSwitch />
+ */
 module RRSwitch = {
-  let createElement = ReactRe.wrapPropsShamelessly sswitch (Js.Obj.empty ());
+  let createElement = ReactRe.wrapPropsShamelessly _switch (Js.Obj.empty ());
 };
