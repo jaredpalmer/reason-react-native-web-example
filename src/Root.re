@@ -10,7 +10,6 @@ module Root = {
   include ReactRe.Component.JsProps;
   let name = "Root";
   type props = {
-    /* An array of Meetup.com events */
     rootTag: root
   };
   let render _ => <BrowserRouter> <App /> </BrowserRouter>;
