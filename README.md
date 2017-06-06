@@ -4,7 +4,7 @@
 
 ```bash
 git clone git@github.com:jaredpalmer/reason-react-native-web-example.git
-yarn
+cd reason-react-native-web-example && yarn
 yarn dev
 ```
 
