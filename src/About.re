@@ -16,16 +16,12 @@ let styles =
       }
     );
 
-module About = {
-  include ReactRe.Component;
-  let name = "About";
-  type props = unit;
-  let render _ =>
+let component = ReasonReact.statelessComponent "About";
+
+let make _children => {
+  ...component,
+  render: fun () _ =>
     <View style=styles##wrapper>
       <Text style=styles##text value="React Native Web is Awesome" />
-    </View>;
+    </View>
 };
-
-include ReactRe.CreateComponent About;
-
-let createElement = wrapProps ();

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm run js-watch | npm run bsb-watch",
     "js-watch": "razzle start",
-    "bsb-watch": "bsb -make-world -w",
+    "bsb-watch": "bsb -make-world -w 2>&1 | berror --path-to-refmttype /usr/local/bin/refmt",
     "clean": "bsb -clean-world && rm -rf build",
     "build": "bsb -make-world && razzle build",
     "start": "NODE_ENV=production node build/server.js"
@@ -21,11 +21,12 @@
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-native-web": "^0.0.97",
-    "reason-react": "https://github.com/reasonml/reason-react.git",
+    "react-router-dom": "^4.1.1",
+    "reason-react": "^0.1.4",
     "sanitize.css": "^5.0.0"
   },
   "devDependencies": {
-    "bs-platform": "^1.7.3",
+    "bs-platform": "^1.7.5",
     "razzle": "^0.6.3"
   }
 }

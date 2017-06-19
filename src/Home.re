@@ -16,14 +16,10 @@ let styles =
       }
     );
 
-module Home = {
-  include ReactRe.Component;
-  let name = "Home";
-  type props = unit;
-  let render _ =>
-    <View style=styles##wrapper> <Text style=styles##text value="Reason is awesome!" /> </View>;
+let component = ReasonReact.statelessComponent "Home";
+
+let make _children => {
+  ...component,
+  render: fun () _ =>
+    <View style=styles##wrapper> <Text style=styles##text value="Reason is awesome!" /> </View>
 };
-
-include ReactRe.CreateComponent Home;
-
-let createElement = wrapProps ();
