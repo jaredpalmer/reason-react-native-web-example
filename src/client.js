@@ -1,4 +1,3 @@
-import 'sanitize.css/sanitize.css';
 import './global.css';
 
 import ReactNative, { AppRegistry } from 'react-native';

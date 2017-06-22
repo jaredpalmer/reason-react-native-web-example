@@ -11,7 +11,6 @@
     "start": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
-    "bs-director": "^0.0.1",
     "bs-react-native": "https://github.com/BuckleTypes/bs-react-native.git",
     "compression": "^1.6.2",
     "express": "^4.15.2",
@@ -22,11 +21,10 @@
     "react-dom": "15.4.2",
     "react-native-web": "^0.0.97",
     "react-router-dom": "^4.1.1",
-    "reason-react": "^0.1.4",
-    "sanitize.css": "^5.0.0"
+    "reason-react": "^0.1.5"
   },
   "devDependencies": {
     "bs-platform": "^1.7.5",
-    "razzle": "^0.6.3"
+    "razzle": "latest"
   }
 }
