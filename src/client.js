@@ -1,11 +1,10 @@
-import 'sanitize.css/sanitize.css';
 import './global.css';
 
 import ReactNative, { AppRegistry } from 'react-native';
 
 import React from 'react';
 
-const Root = require('../lib/js/src/root').comp;
+const Root = require('../lib/js/src/root').jsComponent;
 
 const initialState = window.__DATA__;
 

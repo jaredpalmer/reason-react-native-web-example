@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import compression from 'compression';
 import express from 'express';
 import helmet from 'helmet';

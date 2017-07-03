@@ -1,21 +1,15 @@
-open ReactRouter;
+let component = ReasonReact.statelessComponent "Root";
 
-
-/**
- * React Native Web actually pushes a ton of stuff into props, we just need
- * one property though to get ReactRe to compile and not yell at us */
-type rootTag = Js.t {. className : string};
-
-module Root = {
-  include ReactRe.Component.JsProps;
-  let name = "Root";
-  type props = {rootTag};
-  let render _ => <BrowserRouter> <App /> </BrowserRouter>;
-  /* Tell Reason-React how to transform JS props into ReasonML */
-  type jsProps = Js.t {. rootTag : rootTag};
-  let jsPropsToReasonProps = Some (fun jsProps => {rootTag: jsProps##rootTag});
+let make ::rootTag _children => {
+  let logProps props => Js.log props;
+  {
+    ...component,
+    render: fun () _self => {
+      logProps rootTag;
+      <ReactRouterBrowserRouter> <App /> </ReactRouterBrowserRouter>
+    }
+  }
 };
 
-include ReactRe.CreateComponent Root;
-
-let createElement ::rootTag => wrapProps {rootTag: rootTag};
+let jsComponent =
+  ReasonReact.wrapReasonForJs ::component (fun jsProps => make rootTag::jsProps##rootTag [||]);

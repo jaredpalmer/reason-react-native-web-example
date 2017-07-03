@@ -4,9 +4,7 @@ const path = require('path');
 
 module.exports = {
   modify(config, { target, dev }, webpack) {
-    config.module.rules[
-      config.module.rules.findIndex(rule => rule.loader == 'babel-loader')
-    ].include.push(
+    config.module.rules[1].include.push(
       path.resolve(__dirname, 'node_modules/react-native-uncompiled')
     );
 
