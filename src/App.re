@@ -8,14 +8,16 @@ let make _children => {
   {
     ...component,
     render: fun () _ =>
-      <View>
-        <ReactRouterNavLink _to="/"> (ReactRe.stringToElement "Home") </ReactRouterNavLink>
-        <ReactRouterNavLink _to="/about"> (ReactRe.stringToElement "About") </ReactRouterNavLink>
-        <ReactRouterSwitch>
-          <ReactRouterRoute path="/" component=renderHomeRoute exact=true />
-          <ReactRouterRoute path="/about" component=renderAboutRoute exact=true />
-        </ReactRouterSwitch>
-      </View>
+      <ReactRouterBrowserRouter>
+        <View>
+          <ReactRouterNavLink _to="/"> (ReactRe.stringToElement "Home") </ReactRouterNavLink>
+          <ReactRouterNavLink _to="/about"> (ReactRe.stringToElement "About") </ReactRouterNavLink>
+          <ReactRouterSwitch>
+            <ReactRouterRoute path="/" component=renderHomeRoute exact=true />
+            <ReactRouterRoute path="/about" component=renderAboutRoute exact=true />
+          </ReactRouterSwitch>
+        </View>
+      </ReactRouterBrowserRouter>
   }
 };
 
