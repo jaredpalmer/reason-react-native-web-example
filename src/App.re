@@ -1,22 +1,30 @@
-open ReactNative;
+open BsReactNative;
 
-let component = ReasonReact.statelessComponent "App";
+let component = ReasonReact.statelessComponent("App");
 
-let make _children => {
-  let renderHomeRoute _ => <Home />;
-  let renderAboutRoute _ => <About />;
+let make = (_children) => {
+  let renderHomeRoute = (_) => <Home />;
+  let renderAboutRoute = (_) => <About />;
   {
     ...component,
-    render: fun () _ =>
+    render: (_self) =>
       <View>
-        <ReactRouterNavLink _to="/"> (ReactRe.stringToElement "Home") </ReactRouterNavLink>
-        <ReactRouterNavLink _to="/about"> (ReactRe.stringToElement "About") </ReactRouterNavLink>
+        <ReactRouterNavLink _to="/">
+          (ReasonReact.stringToElement("Home"))
+        </ReactRouterNavLink>
+        <ReactRouterNavLink _to="/about">
+          (ReasonReact.stringToElement("About"))
+        </ReactRouterNavLink>
         <ReactRouterSwitch>
           <ReactRouterRoute path="/" component=renderHomeRoute exact=true />
-          <ReactRouterRoute path="/about" component=renderAboutRoute exact=true />
+          <ReactRouterRoute
+            path="/about"
+            component=renderAboutRoute
+            exact=true
+          />
         </ReactRouterSwitch>
       </View>
   }
 };
 
-let jsComponent = ReasonReact.wrapReasonForJs ::component (fun _ => make [||]);
+let jsComponent = ReasonReact.wrapReasonForJs(~component, (_) => make([||]));
