@@ -1,4 +1,4 @@
-external _switch : ReactRe.reactClass = "Switch" [@@bs.module "react-router-dom"];
+[@bs.module "react-router-dom"] external _switch : ReasonReact.reactClass = "Switch";
 
-let make children =>
-  ReasonReact.wrapJsForReason reactClass::_switch props::(Js.Obj.empty ()) children;
+let make = (children) =>
+  ReasonReact.wrapJsForReason(~reactClass=_switch, ~props=Js.Obj.empty(), children);

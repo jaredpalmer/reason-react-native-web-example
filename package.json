@@ -5,26 +5,26 @@
   "scripts": {
     "dev": "npm run js-watch | npm run bsb-watch",
     "js-watch": "razzle start",
-    "bsb-watch": "bsb -make-world -w 2>&1 | berror --path-to-refmttype /usr/local/bin/refmt",
+    "bsb-watch": "bsb -make-world -w",
     "clean": "bsb -clean-world && rm -rf build",
     "build": "bsb -make-world && razzle build",
     "start": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
-    "bs-react-native": "https://github.com/BuckleTypes/bs-react-native.git",
+    "bs-react-native": "^0.5.0",
     "compression": "^1.6.2",
     "express": "^4.15.2",
     "helmet": "^3.6.1",
     "hpp": "^0.2.2",
     "morgan": "^1.8.2",
-    "react": "15.4.2",
-    "react-dom": "15.4.2",
-    "react-native-web": "^0.0.97",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-native-web": "^0.3.0-rc.4",
     "react-router-dom": "^4.1.1",
-    "reason-react": "^0.1.5"
+    "reason-react": "^0.3.0"
   },
   "devDependencies": {
-    "bs-platform": "^1.7.5",
-    "razzle": "latest"
+    "bs-platform": "^2.1.0",
+    "razzle": "^0.8.7"
   }
 }

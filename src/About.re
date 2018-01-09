@@ -1,26 +1,33 @@
-open ReactNative;
+open BsReactNative;
 
 let styles =
-  StyleSheet.create
+  StyleSheet.create(
     Style.(
       {
         "wrapper":
-          style [
-            flexDirection `column,
-            backgroundColor "#3398FF",
-            marginVertical 16.,
-            marginHorizontal 32.,
-            paddingVertical 64.
-          ],
-        "text": style [color "#fff", fontSize 17., fontWeight `_500, marginLeft 15.]
+          style([
+            flexDirection(Column),
+            backgroundColor("#3398FF"),
+            marginVertical(Pt(16.)),
+            marginHorizontal(Pt(32.)),
+            paddingVertical(Pt(64.))
+          ]),
+        "text":
+          style([
+            color("#fff"),
+            fontSize(Float(17.)),
+            fontWeight(`_500),
+            marginLeft(Pt(15.))
+          ])
       }
-    );
+    )
+  );
 
-let component = ReasonReact.statelessComponent "About";
+let component = ReasonReact.statelessComponent("About");
 
-let make _children => {
+let make = (_children) => {
   ...component,
-  render: fun () _ =>
+  render: (_self) =>
     <View style=styles##wrapper>
       <Text style=styles##text value="React Native Web is Awesome" />
     </View>

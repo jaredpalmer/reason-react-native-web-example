@@ -7,10 +7,8 @@
   "reason": {
     "react-jsx": 2
   },
-  "bs-dependencies": [
-    "bs-react-native",
-    "reason-react"
-  ],
+  "refmt": 3,
+  "bs-dependencies": ["bs-react-native", "reason-react"],
   "sources": [
     {
       "dir": "src",
@@ -22,3 +20,4 @@
     }
   ]
 }
+
