@@ -1,18 +1,14 @@
-import './global.css';
+import "./global.css";
 
-import ReactNative, { AppRegistry } from 'react-native';
+import {AppRegistry} from "react-native";
 
-import React from 'react';
-
-const Root = require('../lib/js/src/root').jsComponent;
-
-const initialState = window.__DATA__;
+const ClientRoot = require("../lib/js/src/ClientRoot.bs").default;
 
 // register the app
-AppRegistry.registerComponent('App', () => Root);
+AppRegistry.registerComponent("App", () => ClientRoot);
 
-AppRegistry.runApplication('App', {
-  rootTag: document.getElementById('root'),
+AppRegistry.runApplication("App", {
+  rootTag: document.getElementById("root"),
 });
 
 if (module.hot) {

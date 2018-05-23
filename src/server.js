@@ -1,47 +1,41 @@
-import React from 'react';
-import compression from 'compression';
-import express from 'express';
-import helmet from 'helmet';
-import hpp from 'hpp';
-import morgan from 'morgan';
+import React from "react";
+import compression from "compression";
+import express from "express";
+import helmet from "helmet";
+import hpp from "hpp";
+import morgan from "morgan";
 
-import { AppRegistry } from 'react-native';
-import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router';
+import {AppRegistry} from "react-native";
+import ReactDOMServer from "react-dom/server";
 
-const App = require('../lib/js/src/App').jsComponent;
-
+const App = require("../lib/js/src/App.bs").default;
+const Routes = require("../lib/js/src/Routes.bs");
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
 
 server
-  .disable('x-powered-by')
-  .use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'))
+  .disable("x-powered-by")
+  .use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"))
   .use(helmet())
   .use(hpp())
   .use(compression())
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .get('/*', (req, res) => {
-    const context = {};
-    const ServerRoot = () => (
-      <StaticRouter location={req.url} context={context}>
-        <App />
-      </StaticRouter>
-    );
+  .get("/*", (req, res) => {
+    // get route based on url
+    const route = Routes.serverMatch(req.path);
 
-    AppRegistry.registerComponent('App', () => ServerRoot);
-    const { element, stylesheets } = AppRegistry.getApplication('App');
+    const ServerRoot = () => <App route={route} />;
+
+    AppRegistry.registerComponent("App", () => ServerRoot);
+    const {element, stylesheets} = AppRegistry.getApplication("App");
     const markup = ReactDOMServer.renderToString(element);
     const initialStyles = stylesheets
       .map(sheet => ReactDOMServer.renderToStaticMarkup(sheet))
-      .join('\n');
+      .join("\n");
 
-    if (context.url) {
-      res.writeHead(301, { Location: context.url });
-    } else {
-      res.send(
-        `<!doctype html>
+    res.send(
+      `<!doctype html>
           <html lang="en">
             <head>
               <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -54,7 +48,7 @@ server
               ${
                 assets.client.css
                   ? `<link rel="stylesheet" href="${assets.client.css}">`
-                  : ''
+                  : ""
               }
               ${initialStyles}
               <script src="${assets.client.js}" defer></script>
@@ -63,8 +57,7 @@ server
               <div id="root">${markup}</div>
             </body>
           </html>`,
-      );
-    }
+    );
   });
 
 export default server;
