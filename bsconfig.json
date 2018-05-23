@@ -11,13 +11,8 @@
   "bs-dependencies": ["bs-react-native", "reason-react"],
   "sources": [
     {
-      "dir": "src",
-      "subdirs": [
-        {
-          "dir": "types"
-        }
-      ]
+      "dir": "src"
     }
-  ]
+  ],
+  "suffix": ".bs.js"
 }
-

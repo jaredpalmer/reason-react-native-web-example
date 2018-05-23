@@ -20,11 +20,10 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-native-web": "^0.3.0-rc.4",
-    "react-router-dom": "^4.1.1",
-    "reason-react": "^0.3.0"
+    "reason-react": "^0.4.1"
   },
   "devDependencies": {
-    "bs-platform": "^2.1.0",
+    "bs-platform": "^3",
     "razzle": "^0.8.7"
   }
 }

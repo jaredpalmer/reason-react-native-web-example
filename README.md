@@ -1,5 +1,7 @@
 # Reason React Native Web Example
 
+> Reason React + React Native Web using ReasonReact's built-in Router, with Razzle for SSR
+
 ## Installation
 
 ```bash
@@ -12,18 +14,14 @@ Go ahead and edit `src/App.re`.
 
 ## NPM Scripts
 
-- *`yarn dev`*: Run BS and Webpack together
-- *`yarn bsb-watch`*: Run BuckleScript compiler in watch mode
-- *`yarn js-watch`*: Run Razzle (Webpack compiler) in development
-- *`yarn build`*: Build for production
-- *`yarn start`*: Start production
-- *`yarn run clean`*: Clean up build artifacts and directories
+* _`yarn dev`_: Run BS and Webpack together
+* _`yarn bsb-watch`_: Run BuckleScript compiler in watch mode
+* _`yarn js-watch`_: Run Razzle (Webpack compiler) in development
+* _`yarn build`_: Build for production
+* _`yarn start`_: Start production
+* _`yarn run clean`_: Clean up build artifacts and directories
 
+#### Authors
 
-## Todo
-
-- [ ] SSR (having a module resolution issue with React Native). You can uncomment
-lines in `src/server.js` and see what happens.
-
-#### Author
-- Jared Palmer [@jaredpalmer](https://twitter.com/jaredpalmer)
+* Jared Palmer [@jaredpalmer](https://twitter.com/jaredpalmer)
+* Kyle Goggin [@kgoggin](https://twitter.com/kgoggin)
