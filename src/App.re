@@ -4,12 +4,13 @@ open BsReactNative;
 
 let styles =
   StyleSheet.create(
-    Style.(
+    {
+      open Style;
       {
         "navBar":
           style([
             flexDirection(Row),
-            backgroundColor("#f1f1f1"),
+            backgroundColor(String("#f1f1f1")),
             paddingVertical(Pt(8.)),
             paddingHorizontal(Pt(16.)),
           ]),
@@ -19,8 +20,8 @@ let styles =
             paddingHorizontal(Pt(8.)),
             marginRight(Pt(8.)),
           ]),
-      }
-    ),
+      };
+    },
   );
 
 let component = ReasonReact.statelessComponent("App");
@@ -31,15 +32,15 @@ let make = (~route: Routes.t, _children) => {
     <View>
       <View style=styles##navBar>
         <View style=styles##link>
-          <Link route=Home> (ReasonReact.string("Home")) </Link>
+          <TextLink route=Home> (ReasonReact.string("Home")) </TextLink>
         </View>
         <View style=styles##link>
-          <Link route=About> (ReasonReact.string("About")) </Link>
+          <TextLink route=About> (ReasonReact.string("About")) </TextLink>
         </View>
         <View style=styles##link>
-          <Link route=(Greet(Some("Hello!")))>
+          <TextLink route=(Greet(Some("Hello!")))>
             (ReasonReact.string("Greet"))
-          </Link>
+          </TextLink>
         </View>
       </View>
       (

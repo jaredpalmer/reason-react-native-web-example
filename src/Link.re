@@ -14,7 +14,7 @@ let make = (~route: Routes.t, children) => {
         "href": href,
         "onClick":
           self.handle((event, _self) => {
-            ReactEventRe.Mouse.preventDefault(event);
+            ReactEvent.Mouse.preventDefault(event);
             ReasonReact.Router.push(href);
           }),
       },

@@ -37,7 +37,7 @@ let push = route => route |> toHref |> push;
 /* On the server, we need a way to parse the path in req, but ReasonReact.Router doesn't
    expose this logic publicly. So we just copy it here - note that it won't work for search or hash, though
    that'd be fairly trivial to add */
-let serverMatch = (path: string) : t => {
+let serverMatch = (path: string): t => {
   let urlPath: list(string) =
     switch (path) {
     | ""
