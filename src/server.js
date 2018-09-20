@@ -28,11 +28,9 @@ server
     const ServerRoot = () => <App route={route} />;
 
     AppRegistry.registerComponent("App", () => ServerRoot);
-    const {element, stylesheets} = AppRegistry.getApplication("App");
+    const {element, getStyleElement} = AppRegistry.getApplication("App");
     const markup = ReactDOMServer.renderToString(element);
-    const initialStyles = stylesheets
-      .map(sheet => ReactDOMServer.renderToStaticMarkup(sheet))
-      .join("\n");
+    const initialStyles = ReactDOMServer.renderToStaticMarkup(getStyleElement());
 
     res.send(
       `<!doctype html>

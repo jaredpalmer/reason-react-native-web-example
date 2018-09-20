@@ -20,12 +20,10 @@ let make = _children => {
     switch (action) {
     | ChangeRoute(route) => ReasonReact.Update(route)
     },
-  subscriptions: ({send}) => [
-    Sub(
-      () => watchUrl(url => send(ChangeRoute(url |> Routes.match))),
-      unwatchUrl,
-    ),
-  ],
+  didMount: self => {
+    let watcherID = ReasonReact.Router.watchUrl(url => self.send(ChangeRoute(url |> Routes.match)));
+    self.onUnmount(() => ReasonReact.Router.unwatchUrl(watcherID));
+  },
   render: ({state}) => <App route=state />,
 };
 
