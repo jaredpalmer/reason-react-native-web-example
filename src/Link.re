@@ -8,17 +8,15 @@ let make = (~route: Routes.t, children) => {
   ...component,
   render: self => {
     let href = Routes.toHref(route);
-    ReasonReact.createDomElement(
-      "a",
-      ~props={
-        "href": href,
-        "onClick":
-          self.handle((event, _self) => {
-            ReactEvent.Mouse.preventDefault(event);
-            ReasonReact.Router.push(href);
-          }),
-      },
-      children,
-    );
+    <a
+      href
+      onClick={
+        self.handle((event, _self) => {
+          ReactEvent.Mouse.preventDefault(event);
+          ReasonReact.Router.push(href);
+        })
+      }>
+      ...children
+    </a>;
   },
 };
