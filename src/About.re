@@ -3,8 +3,7 @@ open BsReactNative;
 let styles =
   StyleSheet.create(
     {
-      open Style;
-      {
+      Style.{
         "wrapper":
           style([
             flexDirection(Column),

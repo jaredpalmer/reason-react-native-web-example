@@ -10,12 +10,7 @@ type PropsType = {
 };
 
 function Link(props: PropsType, context: Object) {
-  const {
-    href,
-    style,
-    onPress,
-    ...otherProps
-  } = props;
+  const { href, style, onPress, ...otherProps } = props;
 
   return (
     <Text

@@ -1,5 +1,5 @@
 [@bs.module "../../../src/TextLinkNative"]
-external link : ReasonReact.reactClass = "default";
+external link: ReasonReact.reactClass = "default";
 
 let make =
     (

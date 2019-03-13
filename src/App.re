@@ -5,8 +5,7 @@ open BsReactNative;
 let styles =
   StyleSheet.create(
     {
-      open Style;
-      {
+      Style.{
         "navBar":
           style([
             flexDirection(Row),
@@ -32,28 +31,26 @@ let make = (~route: Routes.t, _children) => {
     <View>
       <View style=styles##navBar>
         <View style=styles##link>
-          <TextLink route=Home> (ReasonReact.string("Home")) </TextLink>
+          <TextLink route=Home> {ReasonReact.string("Home")} </TextLink>
         </View>
         <View style=styles##link>
-          <TextLink route=About> (ReasonReact.string("About")) </TextLink>
+          <TextLink route=About> {ReasonReact.string("About")} </TextLink>
         </View>
         <View style=styles##link>
-          <TextLink route=(Greet(Some("Hello!")))>
-            (ReasonReact.string("Greet"))
+          <TextLink route={Greet(Some("Hello!"))}>
+            {ReasonReact.string("Greet")}
           </TextLink>
         </View>
       </View>
-      (
-        switch (route) {
-        | Home => <Home />
-        | About => <About />
-        | Greet(greeting) => <Greet ?greeting />
-        | NotFound =>
-          <View>
-            <Text> ("404 - Route Not Found :(" |> ReasonReact.string) </Text>
-          </View>
-        }
-      )
+      {switch (route) {
+       | Home => <Home />
+       | About => <About />
+       | Greet(greeting) => <Greet ?greeting />
+       | NotFound =>
+         <View>
+           <Text> {"404 - Route Not Found :(" |> ReasonReact.string} </Text>
+         </View>
+       }}
     </View>,
 };
 

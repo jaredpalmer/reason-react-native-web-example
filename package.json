@@ -8,7 +8,8 @@
     "bsb-watch": "bsb -make-world -w",
     "clean": "bsb -clean-world && rm -rf build",
     "build": "bsb -make-world && razzle build",
-    "start": "NODE_ENV=production node build/server.js"
+    "start": "NODE_ENV=production node build/server.js",
+    "format": "find . -name \"*.re\" | grep -v \"node_modules\" | xargs bsrefmt --in-place"
   },
   "dependencies": {
     "bs-react-native": "^0.10.0",

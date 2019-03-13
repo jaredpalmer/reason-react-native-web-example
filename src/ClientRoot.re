@@ -21,7 +21,10 @@ let make = _children => {
     | ChangeRoute(route) => ReasonReact.Update(route)
     },
   didMount: self => {
-    let watcherID = ReasonReact.Router.watchUrl(url => self.send(ChangeRoute(url |> Routes.match)));
+    let watcherID =
+      ReasonReact.Router.watchUrl(url =>
+        self.send(ChangeRoute(url |> Routes.match))
+      );
     self.onUnmount(() => ReasonReact.Router.unwatchUrl(watcherID));
   },
   render: ({state}) => <App route=state />,
