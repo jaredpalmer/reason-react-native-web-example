@@ -1,6 +1,4 @@
-import "./global.css";
-
-import {AppRegistry} from "react-native";
+import { AppRegistry } from "react-native";
 
 const ClientRoot = require("../lib/js/src/ClientRoot.bs").default;
 
@@ -8,7 +6,7 @@ const ClientRoot = require("../lib/js/src/ClientRoot.bs").default;
 AppRegistry.registerComponent("App", () => ClientRoot);
 
 AppRegistry.runApplication("App", {
-  rootTag: document.getElementById("root"),
+  rootTag: document.getElementById("react-root")
 });
 
 if (module.hot) {

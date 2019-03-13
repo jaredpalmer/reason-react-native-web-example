@@ -1,9 +1,0 @@
-html, body {
-  height: 100%;
-  overflow: hidden;
-}
-
-#root {
-  height: 100%;
-  display: flex;
-}
