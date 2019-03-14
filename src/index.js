@@ -1,11 +1,3 @@
-// adding this hack for now until react-art supports SSR.
-// reference: https://github.com/necolas/react-native-web/issues/737#issuecomment-355729136
-if (typeof document === 'undefined') {
-  global.document = {
-    createElement: () => null,
-  };
-}
-
 let app = require("./server").default;
 const express = require("express");
 
