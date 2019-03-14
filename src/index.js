@@ -6,12 +6,19 @@ if (typeof document === 'undefined') {
   };
 }
 
-const app = require('./server').default;
-const express = require('express');
+let app = require("./server").default;
+const express = require("express");
 
 if (module.hot) {
-  module.hot.accept('./server');
-  console.info('✅  Server-side HMR Enabled!');
+  module.hot.accept("./server", function() {
+    console.log("🔁  HMR Reloading `./server`...");
+    try {
+      app = require("./server").default;
+    } catch (error) {
+      console.error(error);
+    }
+  });
+  console.info("✅  Server-side HMR Enabled!");
 }
 
 const port = process.env.PORT || 3000;
