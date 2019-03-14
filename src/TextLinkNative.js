@@ -9,7 +9,7 @@ type PropsType = {
   children?: React.Node
 };
 
-function Link(props: PropsType, context: Object) {
+function TextNativeLink(props: PropsType, context: Object) {
   const { href, style, onPress, ...otherProps } = props;
 
   return (
@@ -23,6 +23,6 @@ function Link(props: PropsType, context: Object) {
   );
 }
 
-Link.displayName = "Link";
+TextNativeLink.displayName = "TextNativeLink";
 
-export default Link;
+export default TextNativeLink;

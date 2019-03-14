@@ -9,16 +9,10 @@ let styles =
         "navBar":
           style([
             flexDirection(Row),
-            backgroundColor(String("#f1f1f1")),
-            paddingVertical(Pt(8.)),
-            paddingHorizontal(Pt(16.)),
+            backgroundColor("#f1f1f1"->String),
+            height(44.->Pt),
           ]),
-        "link":
-          style([
-            paddingVertical(Pt(4.)),
-            paddingHorizontal(Pt(8.)),
-            marginRight(Pt(8.)),
-          ]),
+        "link": style([justifyContent(Center), paddingHorizontal(16.->Pt)]),
       };
     },
   );
@@ -30,17 +24,27 @@ let make = (~route: Routes.t, _children) => {
   render: _self =>
     <View>
       <View style=styles##navBar>
-        <View style=styles##link>
-          <TextLink route=Home> {ReasonReact.string("Home")} </TextLink>
-        </View>
-        <View style=styles##link>
-          <TextLink route=About> {ReasonReact.string("About")} </TextLink>
-        </View>
-        <View style=styles##link>
-          <TextLink route={Greet(Some("Hello!"))}>
-            {ReasonReact.string("Greet")}
-          </TextLink>
-        </View>
+        <TouchableHighlightLink
+          route=Home
+          style=styles##link
+          activeOpacity=1.0
+          underlayColor="#DEDEDE">
+          <Text> {"Home" |> ReasonReact.string} </Text>
+        </TouchableHighlightLink>
+        <TouchableHighlightLink
+          route=About
+          style=styles##link
+          activeOpacity=1.0
+          underlayColor="#DEDEDE">
+          <Text> {"About" |> ReasonReact.string} </Text>
+        </TouchableHighlightLink>
+        <TouchableHighlightLink
+          route={Greet(Some("Hello!"))}
+          style=styles##link
+          activeOpacity=1.0
+          underlayColor="#DEDEDE">
+          <Text> {"Greet" |> ReasonReact.string} </Text>
+        </TouchableHighlightLink>
       </View>
       {switch (route) {
        | Home => <Home />

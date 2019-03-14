@@ -1,6 +1,7 @@
 let component = ReasonReact.statelessComponent("TextLink");
 
-let make = (~route: Routes.t, children) => {
+let make =
+    (~route: Routes.t, ~style: option(BsReactNative.Style.t)=?, children) => {
   let href = Routes.toHref(route);
   let click = event => {
     ReactEvent.Mouse.preventDefault(event);
@@ -9,7 +10,7 @@ let make = (~route: Routes.t, children) => {
   {
     ...component,
     render: _self => {
-      <TextLinkNative href onPress=click> children </TextLinkNative>;
+      <TextLinkNative ?style href onPress=click> children </TextLinkNative>;
     },
   };
 };
