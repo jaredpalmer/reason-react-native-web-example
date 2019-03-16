@@ -6382,9 +6382,9 @@ react-is@^16.8.1:
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
 
-react-native-web@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.11.0.tgz#e89f4393c369471a35740a25d391a55cd1904db9"
+react-native-web@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.11.1.tgz#a70c8358e36f38a563a709f267c8f153ee7dc435"
   dependencies:
     array-find-index "^1.0.2"
     create-react-class "^15.6.2"
