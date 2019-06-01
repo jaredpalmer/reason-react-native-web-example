@@ -1,19 +1,10 @@
-[@bs.module "../../../src/TextLinkNative"]
-external link: ReasonReact.reactClass = "default";
-
-let make =
-    (
-      ~href: option(string)=?,
-      ~style: option(BsReactNative.Style.t)=?,
-      ~onPress=?,
-      children,
-    ) =>
-  ReasonReact.wrapJsForReason(
-    ~reactClass=link,
-    ~props={
-      "href": Js.Nullable.fromOption(href),
-      "style": Js.Nullable.fromOption(style),
-      "onPress": onPress,
-    },
-    children,
-  );
+[@bs.module "../../../src/TextLinkNative"] [@react.component]
+external make:
+  (
+    ~href: string,
+    ~style: ReactNative.Style.t=?,
+    ~onPress: ReactEvent.Mouse.t => unit=?,
+    ~children: React.element
+  ) =>
+  React.element =
+  "default";

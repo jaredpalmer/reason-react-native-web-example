@@ -1,23 +1,12 @@
-[@bs.module "../../../src/TouchableHighlightLinkNative"]
-external link: ReasonReact.reactClass = "default";
-
-let make =
-    (
-      ~href: option(string)=?,
-      ~style: option(BsReactNative.Style.t)=?,
-      ~activeOpacity: option(float)=?,
-      ~underlayColor: option(string)=?,
-      ~onPress=?,
-      children,
-    ) =>
-  ReasonReact.wrapJsForReason(
-    ~reactClass=link,
-    ~props={
-      "href": Js.Nullable.fromOption(href),
-      "style": Js.Nullable.fromOption(style),
-      "activeOpacity": Js.Nullable.fromOption(activeOpacity),
-      "underlayColor": Js.Nullable.fromOption(underlayColor),
-      "onPress": onPress,
-    },
-    children,
-  );
+[@bs.module "../../../src/TouchableHighlightLinkNative.js"] [@react.component]
+external make:
+  (
+    ~href: string,
+    ~style: ReactNative.Style.t=?,
+    ~activeOpacity: float=?,
+    ~underlayColor: string=?,
+    ~onPress: ReactEvent.Mouse.t => unit,
+    ~children: React.element
+  ) =>
+  React.element =
+  "default";

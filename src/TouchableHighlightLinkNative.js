@@ -2,16 +2,7 @@
 import * as React from "react";
 import { TouchableHighlight, View } from "react-native";
 
-type PropsType = {
-  style?: Object,
-  onPress: () => void,
-  href: string,
-  activeOpacity: number,
-  underlayColor: string,
-  children?: React.Node
-};
-
-function TouchableHighlightLinkNative(props: PropsType, context: Object) {
+function TouchableHighlightLinkNative(props) {
   const {
     href,
     style,

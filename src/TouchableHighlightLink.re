@@ -1,25 +1,19 @@
-let component = ReasonReact.statelessComponent("TouchableHighlightLink");
-
+[@react.component]
 let make =
     (
       ~route: Routes.t,
-      ~style: option(BsReactNative.Style.t)=?,
-      ~activeOpacity: option(float)=?,
-      ~underlayColor: option(string)=?,
-      children,
+      ~style: ReactNative.Style.t=?,
+      ~activeOpacity: float=?,
+      ~underlayColor: string=?,
+      ~children,
     ) => {
   let href = Routes.toHref(route);
   let click = event => {
     ReactEvent.Mouse.preventDefault(event);
-    ReasonReact.Router.push(href);
+    ReasonReactRouter.push(href);
   };
-  {
-    ...component,
-    render: _self => {
-      <TouchableHighlightLinkNative
-        href ?style ?activeOpacity ?underlayColor onPress=click>
-        ...children
-      </TouchableHighlightLinkNative>;
-    },
-  };
+  <TouchableHighlightLinkNative
+    href style activeOpacity underlayColor onPress=click>
+    children
+  </TouchableHighlightLinkNative>;
 };

@@ -1,51 +1,50 @@
-open BsReactNative;
+open ReactNative;
 
 let styles =
-  StyleSheet.create(
-    {
-      Style.{
-        "wrapper":
-          style([
-            flexDirection(Column),
-            backgroundColor(String("#3398FF")),
-            marginVertical(Pt(16.)),
-            marginHorizontal(Pt(32.)),
-            paddingVertical(Pt(64.)),
-          ]),
-        "text":
-          style([
-            color(String("#fff")),
-            fontSize(Float(17.)),
-            fontWeight(`_500),
-            marginLeft(Pt(15.)),
-          ]),
-        "link": style([color("#3398FF"->String)]),
-      };
-    },
+  Style.(
+    StyleSheet.create({
+      "wrapper":
+        style(
+          ~flexDirection=`column,
+          ~backgroundColor="#3398FF",
+          ~marginVertical=16.->pt,
+          ~marginHorizontal=32.->pt,
+          ~paddingVertical=64.->pt,
+          (),
+        ),
+      "text":
+        style(
+          ~color="#fff",
+          ~fontSize=17.,
+          ~fontWeight=`_500,
+          ~marginLeft=15.->pt,
+          (),
+        ),
+      "link": style(~color="#3398FF", ()),
+    })
   );
 
-let component = ReasonReact.statelessComponent("About");
-
-let make = _children => {
-  ...component,
-  render: _self =>
-    <View>
-      <View style=styles##wrapper>
-        <Text style=styles##text value="React Native Web is Awesome" />
-      </View>
-      <Text>
-        "Internal link: "->ReasonReact.string
-        <TextLink route={Greet(Some("Bonjour"))} style=styles##link>
-          "Bonjour"->ReasonReact.string
-        </TextLink>
+[@react.component]
+let make = () => {
+  <View>
+    <View style=styles##wrapper>
+      <Text style=styles##text>
+        "React Native Web is Awesome"->React.string
       </Text>
-      <Text>
-        "External link: "->ReasonReact.string
-        <TextLinkNative
-          href="https://github.com/jaredpalmer/reason-react-native-web-example"
-          style=styles##link>
-          "Github"->ReasonReact.string
-        </TextLinkNative>
-      </Text>
-    </View>,
+    </View>
+    <Text>
+      "Internal link: "->React.string
+      <TextLink route={Greet(Some("Bonjour"))} style=styles##link>
+        "Bonjour"->React.string
+      </TextLink>
+    </Text>
+    <Text>
+      "External link: "->React.string
+      <TextLinkNative
+        href="https://github.com/jaredpalmer/reason-react-native-web-example"
+        style=styles##link>
+        "Github"->React.string
+      </TextLinkNative>
+    </Text>
+  </View>;
 };

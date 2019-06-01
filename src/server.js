@@ -28,10 +28,10 @@ server
     const ServerRoot = () => <App route={route} />;
 
     AppRegistry.registerComponent("App", () => ServerRoot);
-    const { element, getStyleElement } = AppRegistry.getApplication("App");
+    const { element, getStyleElement } = AppRegistry.getApplication("App", {});
     const markup = ReactDOMServer.renderToString(element);
     const initialStyles = ReactDOMServer.renderToStaticMarkup(
-      getStyleElement({})
+      getStyleElement()
     );
 
     res.send(

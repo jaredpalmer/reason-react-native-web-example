@@ -12,19 +12,19 @@
     "format": "find . -name \"*.re\" | grep -v \"node_modules\" | xargs bsrefmt --in-place"
   },
   "dependencies": {
-    "bs-react-native": "^0.10.0",
-    "compression": "^1.6.2",
-    "express": "^4.16.4",
-    "helmet": "^3.16.0",
+    "bs-react-native-monorepo": "https://github.com/reasonml-community/bs-react-native.git",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
     "hpp": "^0.2.2",
     "morgan": "^1.9.1",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-native-web": "^0.11.1",
-    "reason-react": "^0.5.3"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-native-web": "^0.11.4",
+    "reason-react": "^0.7.0"
   },
   "devDependencies": {
-    "bs-platform": "^4.0.18",
-    "razzle": "^2.4.1"
+    "bs-platform": "^5.0.4",
+    "razzle": "^3.0.0"
   }
 }
