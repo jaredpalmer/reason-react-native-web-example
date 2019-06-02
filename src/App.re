@@ -17,7 +17,10 @@ let styles =
   );
 
 [@react.component]
-let make = (~route: Routes.t) => {
+let make = (~serverUrl: ReasonReactRouter.url) => {
+  let url = ReasonReactRouter.useUrl(~serverUrl, ());
+  let route = Routes.match(url);
+
   <View>
     <View style=styles##navBar>
       <TouchableHighlightLink
@@ -51,5 +54,3 @@ let make = (~route: Routes.t) => {
      }}
   </View>;
 };
-
-let default = make;
