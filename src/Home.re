@@ -7,9 +7,9 @@ let styles =
         style(
           ~flexDirection=`column,
           ~backgroundColor="#6698FF",
-          ~marginVertical=16.->pt,
-          ~marginHorizontal=32.->pt,
-          ~paddingVertical=64.->pt,
+          ~marginVertical=16.->dp,
+          ~marginHorizontal=32.->dp,
+          ~paddingVertical=64.->dp,
           (),
         ),
       "text":
@@ -17,7 +17,7 @@ let styles =
           ~color="#fff",
           ~fontSize=17.,
           ~fontWeight=`_500,
-          ~marginLeft=15.->pt,
+          ~marginLeft=15.->dp,
           (),
         ),
     })

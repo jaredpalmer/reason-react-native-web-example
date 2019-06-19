@@ -9,10 +9,10 @@ let styles =
         style(
           ~flexDirection=`row,
           ~backgroundColor="#f1f1f1",
-          ~height=44.->pt,
+          ~height=44.->dp,
           (),
         ),
-      "link": style(~justifyContent=`center, ~paddingHorizontal=16.->pt, ()),
+      "link": style(~justifyContent=`center, ~paddingHorizontal=16.->dp, ()),
     })
   );
 
