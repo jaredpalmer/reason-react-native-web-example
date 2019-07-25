@@ -1,20 +1,9 @@
-let component = ReasonReact.statelessComponent("TextLink");
-
-let make = (~route: Routes.t, children) => {
+[@react.component]
+let make = (~route: Routes.t, ~style: ReactNative.Style.t=?, ~children) => {
   let href = Routes.toHref(route);
-  let click = (event) => {
+  let click = event => {
     ReactEvent.Mouse.preventDefault(event);
-    ReasonReact.Router.push(href);
+    ReasonReactRouter.push(href);
   };
-  {
-    ...component,
-    render: _self => {
-      <TextLinkNative
-        href=href
-        onPress={click}
-      >
-        children
-      </TextLinkNative>
-    },
-  }
+  <TextLinkNative style href onPress=click> children </TextLinkNative>;
 };

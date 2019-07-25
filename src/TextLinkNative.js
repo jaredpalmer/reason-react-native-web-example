@@ -2,20 +2,8 @@
 import * as React from "react";
 import { Text } from "react-native";
 
-type PropsType = {
-  style?: Object,
-  onPress: () => void,
-  href: string,
-  children?: React.Node
-};
-
-function Link(props: PropsType, context: Object) {
-  const {
-    href,
-    style,
-    onPress,
-    ...otherProps
-  } = props;
+function TextNativeLink(props) {
+  const { href, style, onPress, ...otherProps } = props;
 
   return (
     <Text
@@ -28,6 +16,6 @@ function Link(props: PropsType, context: Object) {
   );
 }
 
-Link.displayName = "Link";
+TextNativeLink.displayName = "TextNativeLink";
 
-export default Link;
+export default TextNativeLink;
