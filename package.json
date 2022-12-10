@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "compression": "^1.7.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "helmet": "^3.18.0",
     "hpp": "^0.2.2",
     "morgan": "^1.9.1",
